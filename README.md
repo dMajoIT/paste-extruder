@@ -1,16 +1,18 @@
 # LumenPnP Paste Extruder
 
-This repository contains the source for a prototype paste extruder head for the LumenPnP.
+This repository contains the source for the paste extruder toolhead for the LumenPnP.
 
 ![paste extrusion](./img/hero-paste.gif)
 
-**This is a prototype design. It is still in development.**
+**This is an experimental product. The hardware is stable, but using the extruder will require tuning for your material and application.**
 
 This extruder head is designed for solder paste and ink dispensing applications. It quickly and easily replaces the right toolhead on any version LumenPnP. It has been used to apply conductive ink and Loctite GC-10 solder paste onto PCBs.
 
-Controlling this toolhead is currently done using `leash`, a python libary for interfacing with the LumenPnP, which can be found [here](https://github.com/opulo-inc/leash). There's an example script in `./sw/extrude/extrude.py` that you can use as a starting point for your own application.
+Controlling this toolhead is currently done using [paste.opulo.io](paste.opulo.io), a web-based utility for automatically dispensing solder paste onto PCB pads based on your gerber files.
 
-The source CAD for the extruder is designed as a replacement left nozzle. However, the extruder requires a slightly different build of firmware that forces Z homing to occur at a different position, because otherwise the paste extruder will collide with `front-left-leg`. To prevent the extra step of flashing new firmware, the design is mirrored and intended mainly to be used as a replacement *right* nozzle (opposite from the images and YouTube video about this toolhead). If exporting the 3D models yourself, be sure to mirror `extruder-base` and `cartridge-clamp` in your slicer before printing. All other models can be used normally.
+You can also control the paste extruder using `leash`, a python libary for interfacing with the LumenPnP, which can be found [here](https://github.com/opulo-inc/leash). There's an example script in `./sw/extrude/extrude.py` that you can use as a starting point for your own application.
+
+The source CAD for the extruder was originally designed as a replacement left nozzle. However, the toolhead works much better when replacing the right nozzle. If printing yourself, ensure that you're respecting the mirror operation in the `extruder-base` and `cartridge-clamp` FDM parts. All other models can be used normally.
 
 ## Parts
 
